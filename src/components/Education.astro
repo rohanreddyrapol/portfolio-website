@@ -1,0 +1,14 @@
+---
+import { education } from '../data/resume';
+import { Image } from 'astro:assets';
+---
+<section id="education" class="section-shell section-block">
+  <div class="section-heading" data-reveal><p class="eyebrow">06 / Education</p><h2>Foundations for <span class="gradient-text">what’s next.</span></h2></div>
+  <div class="education-grid">
+    {education.map((item, index) => <article class={`education-card education-card-${index + 1}`} data-reveal>
+      <div class="education-card-top"><span class="education-mark"><Image src={item.institutionLogo!} alt="" width={150} /></span><span class="card-index">{item.date}</span></div>
+      <div><p class="eyebrow">{item.organization}</p><h3>{item.title}</h3><p class="education-result">{item.detail}</p></div>
+      <span class="education-watermark" aria-hidden="true">0{index + 1}</span>
+    </article>)}
+  </div>
+</section>

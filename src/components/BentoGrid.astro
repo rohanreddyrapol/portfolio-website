@@ -1,0 +1,35 @@
+---
+import { profile } from '../data/profile';
+---
+<section id="about" class="section-shell section-block">
+  <div class="section-heading" data-reveal>
+    <p class="eyebrow">01 / About</p>
+    <h2>Cloud systems, applied AI,<br /><span class="gradient-text">and a builder’s mindset.</span></h2>
+    <p class="section-intro">{profile.introduction}</p>
+  </div>
+  <div class="about-grid" aria-label="Profile highlights">
+    <article class="bento-card bento-intro" data-reveal>
+      <div class="intro-art" aria-hidden="true"><span>R</span><i></i><i></i><i></i></div>
+      <span class="card-index">01 / Point of view</span>
+      <h3>Technology should make the complicated feel clear.</h3>
+      <p>I enjoy moving between infrastructure, intelligent tools, and the people who use them. I’m at my best when I can keep learning while making something practical.</p>
+      <a href="#experience" class="text-link">See how I got here <span aria-hidden="true">↘</span></a>
+    </article>
+    <article class="bento-card stat-card" data-reveal><span class="card-index">02 / Degree</span><p class="large-stat">9.47<span>/ 10</span></p><h3>Computer Science & Engineering</h3><p class="card-note">B.Tech · Anurag University</p></article>
+    <article class="bento-card stat-card stat-languages" data-reveal><span class="card-index">03 / AI project</span><p class="large-stat">12<span>+ languages</span></p><h3>Smart Summarizer</h3><p class="card-note">Multilingual video summaries</p></article>
+    <article class="bento-card stat-card stat-hackathon" data-reveal><span class="card-index">04 / TECH HACK 3</span><p class="large-stat">35<span> teams</span></p><h3>National, 36-hour hackathon</h3><p class="card-note">A team-based build sprint</p></article>
+  </div>
+</section>
+
+<section id="skills" class="section-shell skills-section">
+  <div class="section-heading heading-row" data-reveal>
+    <div><p class="eyebrow">02 / Skills</p><h2>A practical <span class="gradient-text">toolkit.</span></h2></div>
+    <p class="section-aside">Grouped around the tools and strengths listed in my resume.</p>
+  </div>
+  <div class="skills-grid">
+    {profile.skillGroups.map((group, index) => <article class="skill-card" data-reveal>
+      <div class="skill-card-heading"><span class="skill-number">0{index + 1}</span><h3>{group.category}</h3></div>
+      <ul class="tag-cloud" aria-label={group.category}>{group.skills.map((skill) => <li>{skill}</li>)}</ul>
+    </article>)}
+  </div>
+</section>

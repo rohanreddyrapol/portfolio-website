@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 84" role="img" aria-labelledby="title">
+  <title id="title">JPMorgan Chase</title>
+  <path fill="#1769aa" d="M27 7 48 19v25L27 56 6 44V19zm0 9L14 23v17l13 8 13-8V23z"/>
+  <text x="60" y="38" fill="#153d66" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-weight="700">JPMorgan</text>
+  <text x="60" y="62" fill="#1769aa" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-weight="700">Chase &amp; Co.</text>
+</svg>

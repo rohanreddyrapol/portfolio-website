@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 110" role="img" aria-labelledby="title">
+  <title id="title">PwC</title>
+  <g transform="translate(14 10)">
+    <path fill="#e0301e" d="M5 25h97L87 43H5z"/><path fill="#eb8c00" d="M20 5h92L99 22H20z"/><path fill="#ffb600" d="M48 0h86l-9 16H48z"/><path fill="#db536a" d="M5 47h76L68 64H5z"/><path fill="#d04a02" d="M5 68h58L54 84H5z"/><path fill="#f2a900" d="M90 46h36l-9 17H81z"/>
+  </g>
+  <text x="26" y="104" fill="#252525" font-family="Arial, Helvetica, sans-serif" font-size="37" font-weight="700" letter-spacing="-2">pwc</text>
+</svg>

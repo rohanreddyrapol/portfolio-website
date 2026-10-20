@@ -1,0 +1,52 @@
+---
+import '../styles/global.css';
+import { profile } from '../data/profile';
+interface Props { title?: string; description?: string }
+const { title = `${profile.fullName} — Software, Cloud & Applied AI`, description = profile.introduction } = Astro.props;
+---
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#090B10" />
+    <meta name="description" content={description} />
+    <meta name="author" content={profile.fullName} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <slot />
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <script>
+      import { gsap } from 'gsap';
+      import { ScrollTrigger } from 'gsap/ScrollTrigger';
+      gsap.registerPlugin(ScrollTrigger);
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const progress = document.querySelector<HTMLElement>('[data-scroll-progress]');
+      if (!reduceMotion && progress) gsap.to(progress, { scaleX: 1, ease: 'none', scrollTrigger: { trigger: document.documentElement, start: 'top top', end: 'bottom bottom', scrub: 0.25 } });
+      if (!reduceMotion) {
+        gsap.utils.toArray<HTMLElement>('[data-reveal]').forEach((element) => gsap.fromTo(element, { y: 22, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.7, ease: 'power3.out', scrollTrigger: { trigger: element, start: 'top 88%', once: true } }));
+        gsap.utils.toArray<HTMLElement>('[data-timeline-line]').forEach((line) => gsap.fromTo(line, { scaleY: 0 }, { scaleY: 1, ease: 'none', scrollTrigger: { trigger: line.parentElement, start: 'top 70%', end: 'bottom 80%', scrub: 0.3 } }));
+        gsap.utils.toArray<HTMLElement>('[data-hero-word]').forEach((word, index) => gsap.fromTo(word, { yPercent: 110, autoAlpha: 0 }, { yPercent: 0, autoAlpha: 1, duration: 0.9, delay: 0.12 + index * 0.12, ease: 'power4.out' }));
+      }
+      if (window.matchMedia('(pointer: fine)').matches && !reduceMotion) {
+        const dot = document.querySelector<HTMLElement>('.cursor-dot');
+        if (dot) {
+          document.body.classList.add('cursor-enabled');
+          window.addEventListener('pointermove', (event: PointerEvent) => gsap.to(dot, { x: event.clientX, y: event.clientY, duration: 0.16, overwrite: true }), { passive: true });
+          document.querySelectorAll('a, button').forEach((item) => {
+            item.addEventListener('pointerenter', () => document.body.classList.add('cursor-hover'));
+            item.addEventListener('pointerleave', () => document.body.classList.remove('cursor-hover'));
+          });
+        }
+      }
+    </script>
+  </body>
+</html>

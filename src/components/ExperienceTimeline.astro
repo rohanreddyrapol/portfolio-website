@@ -1,0 +1,10 @@
+---
+import { experience } from '../data/resume';
+---
+<section id="experience" class="section-shell section-block">
+  <div class="section-heading" data-reveal><p class="eyebrow">04 / Experience</p><h2>Learning by <span class="gradient-text">building.</span></h2><p class="section-intro">Roles and experiences that shaped my interests in cloud, technology, and solving practical problems.</p></div>
+  <div class="timeline-wrap"><div class="timeline-line" data-timeline-line aria-hidden="true"></div>
+    {experience.map((item) => <article class="timeline-entry" data-reveal><span class="timeline-marker"></span><p class="eyebrow">{item.date ?? 'Role'}</p><div class="timeline-card"><p class="entry-kicker">Professional experience</p><h3>{item.title}</h3><p class="entry-org">{item.organization}</p>{item.detail && <p class="entry-detail">{item.detail}</p>}</div></article>)}
+  </div>
+  <aside class="achievement-note" data-reveal><p class="eyebrow">Outside the classroom</p><p>Competed in TECH HACK 3, a 36-hour national hackathon among 35 teams; contributed to Kriya Event Management Club activities including TEDx talks.</p></aside>
+</section>

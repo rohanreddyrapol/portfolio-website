@@ -1,0 +1,15 @@
+---
+import { profile } from '../data/profile';
+---
+<section id="home" class="hero section-shell">
+  <div class="hero-atmosphere" aria-hidden="true"></div>
+  <div class="hero-copy">
+    <p class="eyebrow"><span class="status-dot"></span> Computer Science & Engineering · Hyderabad, India</p>
+    <h1 aria-label={profile.fullName}><span class="hero-line"><span data-hero-word>Rohan Reddy</span></span><span class="hero-line"><span data-hero-word class="gradient-text">Rapol.</span></span></h1>
+    <div class="hero-bottom">
+      <div><p class="hero-lede">Cloud engineering. Applied AI. Useful software.</p><p class="hero-description">{profile.introduction}</p></div>
+      <div class="hero-buttons"><a class="button-primary" href="#projects">Explore my work <span aria-hidden="true">↓</span></a><a class="button-secondary" href={profile.resumeUrl} target="_blank" rel="noreferrer">Open resume <span aria-hidden="true">↗</span></a></div>
+    </div>
+  </div>
+  <div class="hero-foot"><span>Cloud engineering <i>/</i> applied AI <i>/</i> software</span><a href="#about">Scroll to explore <span aria-hidden="true">↓</span></a></div>
+</section>

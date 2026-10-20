@@ -1,0 +1,15 @@
+---
+import { projects } from '../data/resume';
+import { Picture } from 'astro:assets';
+---
+<section id="projects" class="section-block section-alt">
+  <div class="section-shell">
+    <div class="section-heading heading-row" data-reveal><div><p class="eyebrow">03 / Selected projects</p><h2>Ideas made <span class="gradient-text">tangible.</span></h2></div><p class="section-aside">A selection spanning machine learning, cloud infrastructure, and language tools.</p></div>
+    <div class="project-list">
+      {projects.map((project) => <article class={`project-card tone-${project.tone}`} data-reveal>
+        <div class="project-art"><Picture src={project.image} alt={`Illustration for ${project.title}`} formats={['avif', 'webp']} widths={[640, 960, 1280]} sizes="(max-width: 600px) 100vw, (max-width: 850px) 40vw, 32vw" quality={78} loading="lazy" decoding="async" /><span class="art-index" aria-hidden="true">{project.monogram}</span></div>
+        <div class="project-content"><p class="eyebrow">{project.category}</p><h3>{project.title}</h3><p class="project-description">{project.description}</p><ul class="project-details">{project.details.map((detail) => <li>{detail}</li>)}</ul><div class="tag-row">{project.technologies.map((tech) => <span>{tech}</span>)}</div></div>
+      </article>)}
+    </div>
+  </div>
+</section>

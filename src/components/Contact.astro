@@ -1,0 +1,41 @@
+---
+import { profile } from '../data/profile';
+---
+
+<section class="contact-section section-shell" id="contact" aria-labelledby="contact-title">
+  <div class="contact-panel">
+    <div class="contact-glow" aria-hidden="true"></div>
+    <div class="contact-copy">
+      <p class="eyebrow">07 / CONTACT</p>
+      <h2 id="contact-title">Let’s talk about<br />the cloud you’re<br /><span class="gradient-text">building.</span></h2>
+      <p class="contact-intro">For conversations about cloud engineering, applied AI, or practical software projects, email is the best way to reach me.</p>
+    </div>
+
+    <div class="contact-actions" aria-label="Contact links">
+      <a class="contact-action contact-action-email" href={`mailto:${profile.email}`}>
+        <span><strong>Email Rohan</strong><small>{profile.email}</small></span><span class="contact-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="contact-action contact-action-phone" href={`tel:${profile.phone.replaceAll(' ', '')}`}>
+        <span><strong>Call Rohan</strong><small>{profile.phone}</small></span><span class="contact-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="contact-action" href={profile.linkedinUrl} target="_blank" rel="noreferrer">
+        <span><strong>LinkedIn profile</strong></span><span class="contact-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="contact-action" href={profile.resumeUrl} target="_blank" rel="noreferrer">
+        <span><strong>Open resume PDF</strong></span><span class="contact-arrow" aria-hidden="true">↗</span>
+      </a>
+      <details class="contact-compose">
+        <summary>Write a message <span aria-hidden="true">＋</span></summary>
+        <form class="contact-form" action={`mailto:${profile.email}`} method="post" enctype="text/plain">
+          <label for="contact-name">Your name</label>
+          <input id="contact-name" name="name" autocomplete="name" required />
+          <label for="contact-sender">Your email</label>
+          <input id="contact-sender" name="email" type="email" autocomplete="email" required />
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message" rows="4" required></textarea>
+          <div class="form-footer"><button class="button-primary" type="submit">Open email app <span aria-hidden="true">↗</span></button></div>
+        </form>
+      </details>
+    </div>
+  </div>
+</section>

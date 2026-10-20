@@ -1,0 +1,37 @@
+---
+import { profile } from '../data/profile';
+const links = [
+  { label: 'About', href: '#about' }, { label: 'Skills', href: '#skills' },
+  { label: 'Projects', href: '#projects' }, { label: 'Experience', href: '#experience' },
+  { label: 'Credentials', href: '#credentials' }, { label: 'Education', href: '#education' },
+  { label: 'Contact', href: '#contact' },
+];
+---
+<header class="site-header">
+  <nav class="nav-shell" aria-label="Main navigation">
+    <a class="brand" href="#home" aria-label={`${profile.fullName}, home`}><span class="brand-mark">RR</span><span><strong>{profile.fullName}</strong><small>Cloud · Software · AI</small></span></a>
+    <div class="desktop-links">{links.map((link) => <a href={link.href}>{link.label}</a>)}</div>
+    <div class="nav-actions"><a class="nav-linkedin" href={profile.linkedinUrl} target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a><a class="nav-resume" href={profile.resumeUrl} target="_blank" rel="noreferrer">Resume <span aria-hidden="true">↗</span></a><button type="button" class="menu-button" data-menu-button aria-expanded="false" aria-controls="mobile-menu">Menu <span aria-hidden="true">⌄</span></button></div>
+  </nav>
+  <div id="mobile-menu" class="mobile-menu" data-menu-panel hidden>
+    {links.map((link) => <a href={link.href}>{link.label}</a>)}
+    <a href={profile.linkedinUrl} target="_blank" rel="noreferrer">LinkedIn ↗</a>
+    <a href={profile.resumeUrl} target="_blank" rel="noreferrer">Open resume ↗</a>
+  </div>
+  <div class="progress-track" aria-hidden="true"><div data-scroll-progress></div></div>
+</header>
+<script>
+  const button = document.querySelector<HTMLButtonElement>('[data-menu-button]');
+  const panel = document.querySelector<HTMLElement>('[data-menu-panel]');
+  if (button && panel) {
+    const close = (): void => { panel.hidden = true; button.setAttribute('aria-expanded', 'false'); button.textContent = 'Menu ⌄'; };
+    button.addEventListener('click', () => {
+      const open = button.getAttribute('aria-expanded') === 'true';
+      panel.hidden = open;
+      button.setAttribute('aria-expanded', String(!open));
+      button.textContent = open ? 'Menu ⌄' : 'Close ×';
+    });
+    panel.querySelectorAll('a').forEach((link) => link.addEventListener('click', close));
+    document.addEventListener('keydown', (event: KeyboardEvent) => { if (event.key === 'Escape') close(); });
+  }
+</script>
