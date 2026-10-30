@@ -22,6 +22,7 @@ export interface Milestone {
   organization: string;
   date?: string;
   detail: string;
+  responsibilityGroups?: { title: string; items: string[] }[];
   url?: string;
   institutionLogo?: ImageMetadata;
 }
@@ -70,7 +71,47 @@ export const experience: Milestone[] = [
   {
     title: 'Cloud Engineer 1 (CE1)',
     organization: 'Insight',
-    detail: 'Cloud engineering role at Insight.',
+    date: 'Jul 2026 – Present',
+    detail: 'Monitor and support Azure cloud infrastructure, service health, and incident response.',
+    responsibilityGroups: [
+      {
+        title: 'Azure Cloud Infrastructure',
+        items: [
+          'Monitor Azure VMs, CPU, memory, disk, and network performance.',
+          'Use Azure Monitor, Metrics, and Log Analytics to investigate issues; review Azure Alerts, Resource Health, and Service Health.',
+          'Monitor VNets and NSGs, and troubleshoot connectivity with Network Watcher.',
+          'Monitor Storage Accounts, Managed Disks, and backup status; review Azure Backup recovery points and Site Recovery replication health.',
+        ],
+      },
+      {
+        title: 'ServiceNow Ticket Management',
+        items: [
+          'Review, acknowledge, and update incident tickets; track priority, ownership, status, and SLA timelines.',
+          'Coordinate with support teams through resolution.',
+        ],
+      },
+      {
+        title: 'Troubleshooting and Root Cause Analysis',
+        items: [
+          'Troubleshoot VM, storage, networking, and performance issues using runbooks and standard operating procedures.',
+          'Escalate complex issues to L2/L3 teams and document findings.',
+        ],
+      },
+      {
+        title: 'Incident Management',
+        items: [
+          'Monitor Azure Monitor and Datadog alerts; investigate high CPU, low disk space, VM downtime, and connectivity issues.',
+          'Manage priority incidents according to escalation procedures and SLAs.',
+        ],
+      },
+      {
+        title: 'Cloud Operations and Service Availability',
+        items: [
+          'Perform routine infrastructure health checks and maintain cloud availability, reliability, and performance.',
+          'Follow change management procedures and identify resource utilization issues and cost optimization opportunities.',
+        ],
+      },
+    ],
   },
   {
     title: 'Launchpad Program Trainee',
